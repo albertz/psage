@@ -26,7 +26,6 @@ Category of function fields
 from sage.categories.category import Category
 from sage.misc.cachefunc import cached_method
 from sage.categories.basic import Fields
-from sage.rings.field import is_Field
 
 class FunctionFields(Category):
     r"""
