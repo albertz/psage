@@ -22,10 +22,10 @@
 #######################
 # ELLFF DATABASE CODE #
 #######################
-import sage.databases.db
+from sage.databases.all import SQLDatabase as Database
 from sage.rings.all import PolynomialRing, GF
 
-class jCurveDatabase(sage.databases.db.Database):
+class jCurveDatabase(Database):
     def __init__(self, read_only=True):
         """
         Initialize the database.
@@ -37,7 +37,7 @@ class jCurveDatabase(sage.databases.db.Database):
            the database is read_only and changes cannot be committed to
            disk.
         """
-        sage.databases.db.Database.__init__(self, name='jcurve_euler_tables', read_only=read_only)
+        Database.__init__(self, name='jcurve_euler_tables', read_only=read_only)
 
     # may not need __getitem__
     """
@@ -118,7 +118,7 @@ def jCurveEulerTables(read_only=False):
         _jdb = jCurveDatabase(read_only)
         return _jdb
 
-class LocalEulerDatabase(sage.databases.db.Database):
+class LocalEulerDatabase(Database):
     def __init__(self, read_only=True):
         """
         Initialize the database.
@@ -130,7 +130,7 @@ class LocalEulerDatabase(sage.databases.db.Database):
            the database is read_only and changes cannot be committed to
            disk.
         """
-        sage.databases.db.Database.__init__(self, name='local_euler_tables', read_only=read_only)
+        Database.__init__(self, name='local_euler_tables', read_only=read_only)
 
     def __repr__(self):
         """
