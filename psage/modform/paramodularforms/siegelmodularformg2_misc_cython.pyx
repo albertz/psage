@@ -30,6 +30,8 @@ include 'sage/ext/stdsage.pxi'
 include "sage/ext/cdefs.pxi"
 include 'sage/ext/gmp.pxi'
 
+from libc.stdlib cimport malloc
+
 from sage.rings.integer cimport Integer
 
 cpdef divisor_dict(int precision) :
